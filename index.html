@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iros's Mat Forberedelse — HTX Matematik A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f8fb;
+    --bg-card: #ffffff;
+    --bg-subtle: #f1f4f9;
+    --text: #0f172a;
+    --text-2: #334155;
+    --text-muted: #64748b;
+    --text-soft: #94a3b8;
+    --border: #e5e9f0;
+    --border-soft: #eef1f6;
+    --primary: #1e40af;
+    --primary-2: #2563eb;
+    --primary-soft: #eef2ff;
+    --primary-ink: #1e3a8a;
+    --accent: #b45309;
+    --accent-soft: #fef3c7;
+    --success: #15803d;
+    --success-soft: #dcfce7;
+    --error: #b91c1c;
+    --error-soft: #fee2e2;
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.04), 0 2px 6px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 20px 40px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--primary-soft); color: var(--primary-ink); }
+
+  /* ---------- HEADER ---------- */
+  .top-bar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-soft);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+  }
+  .top-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text);
+    font-feature-settings: "ss01" on;
+  }
+  .brand-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .top-stats {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .mini-stat {
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .mini-stat-label { color: var(--text-muted); font-weight: 500; font-size: 12px; }
+  .mini-stat-value { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text); }
+  .mini-stat.fire .mini-stat-value { color: var(--accent); }
+  .mini-stat.fire { background: var(--accent-soft); border-color: #fde68a; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 24px;
+  }
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(32px, 5vw, 48px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+    font-feature-settings: "ss01" on;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 500;
+  }
+  .hero-sub {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 620px;
+  }
+
+  /* ---------- PROGRESS PANEL ---------- */
+  .progress-panel {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+  }
+  .progress-card {
+    background: linear-gradient(135deg, #fafbfd 0%, #f3f5fa 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .level-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .level-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+  }
+  .level-circle .lvl-label { font-size: 9px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; }
+  .level-circle .lvl-num { font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; color: var(--primary); line-height: 1; }
+  .level-info-stack { display: flex; flex-direction: column; gap: 2px; }
+  .level-info-stack .title { font-weight: 700; font-size: 14px; color: var(--text); }
+  .level-info-stack .sub { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+  .xp-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .xp-bar-track {
+    height: 12px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .xp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-2), var(--primary));
+    border-radius: 999px;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 0%;
+    position: relative;
+    overflow: hidden;
+  }
+  .xp-bar-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2.5s linear infinite;
+  }
+  @keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+  }
+
+  .quick-stats {
+    display: flex;
+    gap: 24px;
+  }
+  .qs { text-align: right; }
+  .qs-num { font-family: 'Fraunces', serif; font-weight: 700; font-size: 24px; color: var(--text); line-height: 1; }
+  .qs-num.success { color: var(--success); }
+  .qs-num.accent { color: var(--accent); }
+  .qs-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-top: 4px; }
+
+  /* ---------- MAIN ---------- */
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-soft);
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    border: 1px solid var(--border-soft);
+  }
+  .tab {
+    flex: 1;
+    min-width: 130px;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--text); background: rgba(255,255,255,0.6); }
+  .tab.active {
+    background: white;
+    color: var(--primary-ink);
+    box-shadow: var(--shadow-sm);
+  }
+  .tab svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* TOPIC CHIPS */
+  .topic-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+  }
+  .topic-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    align-self: center;
+    margin-right: 8px;
+  }
+  .chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .chip:hover { border-color: var(--primary-2); color: var(--primary); }
+  .chip.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.2);
+  }
+
+  /* ---------- QUESTION CARD ---------- */
+  .question-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 24px;
+  }
+  .question-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    background: linear-gradient(180deg, #fafbfd 0%, white 100%);
+    border-bottom: 1px solid var(--border-soft);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .question-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .badge-topic { background: var(--primary-soft); color: var(--primary-ink); }
+  .badge-source { background: var(--bg-subtle); color: var(--text-2); font-family: 'JetBrains Mono', monospace; }
+  .badge-easy { background: var(--success-soft); color: var(--success); }
+  .badge-medium { background: #fef3c7; color: #92400e; }
+  .badge-hard { background: var(--error-soft); color: var(--error); }
+  .badge-xp { background: var(--text); color: white; font-family: 'JetBrains Mono', monospace; }
+
+  .timer-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .timer-display.warn { color: var(--accent); }
+  .timer-display.danger { color: var(--error); }
+
+  .question-body {
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .question-body.with-diagram {
+    grid-template-columns: 1fr 320px;
+  }
+  @media (max-width: 820px) {
+    .question-body.with-diagram { grid-template-columns: 1fr; }
+  }
+
+  .question-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .question-text {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .question-text p { margin-bottom: 10px; }
+  .question-text p:last-child { margin-bottom: 0; }
+  .question-text strong { color: var(--primary-ink); font-weight: 700; }
+  .question-text .katex { font-size: 1.05em; }
+  .question-text code, .question-text .mono {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-subtle);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .diagram-wrap {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+  }
+  .diagram-wrap svg { max-width: 100%; height: auto; }
+  .diagram-caption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* ANSWER INPUT */
+  .answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .answer-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .answer-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .answer-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 14px 18px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text);
+    background: white;
+    outline: none;
+    transition: all 0.15s ease;
+  }
+  .answer-input::placeholder { color: var(--text-soft); font-weight: 400; }
+  .answer-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-soft);
+  }
+  .answer-input.correct { border-color: var(--success); background: var(--success-soft); }
+  .answer-input.wrong {
+    border-color: var(--error);
+    background: var(--error-soft);
+    animation: shake 0.4s ease;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  /* BUTTONS */
+  .btn {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.2);
+  }
+  .btn-primary:hover { background: var(--primary-2); transform: translateY(-1px); box-shadow: 0 6px 14px rgba(30, 64, 175, 0.25); }
+  .btn-secondary {
+    background: white;
+    color: var(--text-2);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--primary-2); color: var(--primary); }
+  .btn-success { background: var(--success); color: white; }
+  .btn-success:hover { background: #166534; }
+  .btn-danger { background: white; color: var(--error); border: 1px solid var(--border); }
+  .btn-danger:hover { border-color: var(--error); background: var(--error-soft); }
+  .btn-ghost { background: transparent; color: var(--text-muted); }
+  .btn-ghost:hover { background: var(--bg-soft); color: var(--text); }
+
+  .action-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+  /* HINT */
+  .hint {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .hint-icon {
+    width: 24px; height: 24px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: 1px;
+  }
+  .hint-body {
+    flex: 1;
+    font-size: 14px;
+    color: #78350f;
+    line-height: 1.55;
+  }
+  .hint-body .label {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  /* SOLUTION */
+  .solution {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-top: 8px;
+  }
+  .solution.correct { background: #f0fdf4; border-color: #bbf7d0; }
+  .solution.wrong { background: #fef2f2; border-color: #fecaca; }
+  .solution-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .solution-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .solution.correct .solution-icon { background: var(--success); }
+  .solution.wrong .solution-icon { background: var(--error); }
+  .solution.neutral .solution-icon { background: var(--primary); }
+  .solution-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .solution.correct .solution-title { color: var(--success); }
+  .solution.wrong .solution-title { color: var(--error); }
+  .answer-key {
+    display: inline-block;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 16px;
+    margin: 6px 0;
+  }
+  .solution-body { font-size: 14px; line-height: 1.65; color: var(--text-2); }
+  .solution-body p { margin-bottom: 8px; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  .solution-actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* SELF-GRADE */
+  .self-grade {
+    display: flex; gap: 10px;
+    margin-top: 14px;
+  }
+  .sg-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border: 2px solid var(--border);
+    background: white;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.15s ease;
+  }
+  .sg-btn.green:hover { border-color: var(--success); color: var(--success); background: var(--success-soft); }
+  .sg-btn.red:hover { border-color: var(--error); color: var(--error); background: var(--error-soft); }
+
+  /* TOAST */
+  .toast-wrap {
+    position: fixed;
+    top: 80px; right: 24px;
+    z-index: 1000;
+    display: flex; flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+  }
+  .toast {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: var(--shadow-lg);
+    animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), fadeOut 0.3s ease 2.5s forwards;
+    min-width: 200px;
+  }
+  .toast.success { border-left-color: var(--success); }
+  .toast.warning { border-left-color: var(--accent); }
+  .toast.error { border-left-color: var(--error); }
+  @keyframes slideIn {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fadeOut {
+    to { transform: translateX(20px); opacity: 0; }
+  }
+
+  /* FOOTER */
+  .footer {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 24px;
+    border-top: 1px solid var(--border-soft);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .footer strong { color: var(--text-2); }
+
+  /* SVG DIAGRAM STYLES */
+  .dgm-stroke { stroke: var(--text); stroke-width: 1.5; fill: none; }
+  .dgm-stroke-thick { stroke: var(--text); stroke-width: 2; fill: none; }
+  .dgm-fill { fill: var(--primary-soft); stroke: var(--primary); stroke-width: 1.5; }
+  .dgm-accent { stroke: var(--primary); stroke-width: 2; fill: none; }
+  .dgm-axis { stroke: var(--text-soft); stroke-width: 1; fill: none; }
+  .dgm-grid { stroke: var(--border-soft); stroke-width: 0.5; fill: none; }
+  .dgm-point { fill: var(--primary); }
+  .dgm-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--text-2); }
+  .dgm-label-bold { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; fill: var(--text); }
+  .dgm-arrow { fill: var(--text); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 24px 16px 16px; }
+    .main { padding: 24px 16px 60px; }
+    .progress-card { grid-template-columns: 1fr; gap: 16px; }
+    .quick-stats { justify-content: space-between; }
+    .top-bar-inner { padding: 12px 16px; }
+    .question-body { padding: 24px 20px; }
+    .question-header { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="brand">
+      <div class="brand-logo">i</div>
+      <div class="brand-text">
+        <div class="brand-name">Iros's Mat Forberedelse</div>
+        <div class="brand-sub">HTX Matematik A · Eksamensøvelser</div>
+      </div>
+    </div>
+    <div class="top-stats">
+      <div class="mini-stat fire" id="topStreak">
+        <span class="mini-stat-label">Streak</span>
+        <span class="mini-stat-value"><span id="streak">0</span> 🔥</span>
+      </div>
+      <div class="mini-stat">
+        <span class="mini-stat-label">Rigtige</span>
+        <span class="mini-stat-value" id="correct">0/0</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="hero-title">Træn dig <em>klar</em> til eksamen.</h1>
+  <p class="hero-sub">Selvstændige opgaver fra rigtige HTX Mat A-sæt (2014–2024) samt original træning. Hver opgave indeholder hint, fuld løsning og giver XP. Vælg en mode og kør derudaf.</p>
+</section>
+
+<!-- PROGRESS PANEL -->
+<div class="progress-panel">
+  <div class="progress-card">
+    <div class="level-block">
+      <div class="level-circle">
+        <span class="lvl-label">LVL</span>
+        <span class="lvl-num" id="lvl">1</span>
+      </div>
+      <div class="level-info-stack">
+        <span class="title">Niveau <span id="lvl2">1</span></span>
+        <span class="sub" id="xpText">0 / 100 XP</span>
+      </div>
+    </div>
+    <div class="xp-bar-wrap">
+      <div class="xp-bar-track"><div class="xp-bar-fill" id="xpFill"></div></div>
+    </div>
+    <div class="quick-stats">
+      <div class="qs">
+        <div class="qs-num" id="score">0</div>
+        <div class="qs-label">Score</div>
+      </div>
+      <div class="qs">
+        <div class="qs-num success" id="bestStreak">0</div>
+        <div class="qs-label">Bedste streak</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-mode="random">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      Hurtigfyr
+    </button>
+    <button class="tab" data-mode="delprove1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      Delprøve 1
+    </button>
+    <button class="tab" data-mode="topic">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      Træn emne
+    </button>
+    <button class="tab" data-mode="hard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+      Boss-mode
+    </button>
+  </div>
+
+  <div id="topicBar" style="display:none;"></div>
+
+  <div id="cardSlot"></div>
+</main>
+
+<div class="footer">
+  <strong>Iros's Mat Forberedelse</strong> · Trænings-data baseret på HTX Mat A-sæt 2014–2024 og originale opgaver · Lokalt på din maskine
+</div>
+
+<script>
+// =====================================================
+//                    DIAGRAM HELPERS
+// =====================================================
+const DGM = {
+  thales: () => `
+    <svg viewBox="0 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="100" r="80" class="dgm-stroke-thick" stroke="#1e40af"/>
+      <line x1="40" y1="100" x2="200" y2="100" class="dgm-stroke"/>
+      <line x1="40" y1="100" x2="170" y2="35" class="dgm-stroke-thick"/>
+      <line x1="200" y1="100" x2="170" y2="35" class="dgm-stroke-thick"/>
+      <line x1="120" y1="100" x2="170" y2="35" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+      <circle cx="120" cy="100" r="3" class="dgm-point"/>
+      <circle cx="40" cy="100" r="3" class="dgm-point"/>
+      <circle cx="200" cy="100" r="3" class="dgm-point"/>
+      <circle cx="170" cy="35" r="3" class="dgm-point"/>
+      <text x="32" y="118" class="dgm-label-bold">A</text>
+      <text x="204" y="118" class="dgm-label-bold">B</text>
+      <text x="172" y="28" class="dgm-label-bold">C</text>
+      <text x="124" y="118" class="dgm-label">O</text>
+    </svg>
+  `,
+  vectors2d: () => `
+    <svg viewBox="0 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e40af"/>
+        </marker>
+        <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
+        </marker>
+      </defs>
+      ${[0,1,2,3,4,5,6].map(i => `<line x1="${30+i*30}" y1="20" x2="${30+i*30}" y2="180" class="dgm-grid"/>`).join('')}
+      ${[0,1,2,3,4,5,6].map(i => `<line x1="20" y1="${20+i*26.66}" x2="220" y2="${20+i*26.66}" class="dgm-grid"/>`).join('')}
+      <line x1="20" y1="140" x2="220" y2="140" class="dgm-axis"/>
+      <line x1="30" y1="180" x2="30" y2="20" class="dgm-axis"/>
+      <text x="222" y="155" class="dgm-label">x</text>
+      <text x="18" y="18" class="dgm-label">y</text>
+      <!-- vector u from (1,2) goes (3,4) so to (4,6) -->
+      <line x1="60" y1="86.7" x2="150" y2="20" stroke="#1e40af" stroke-width="2.5" marker-end="url(#arrow1)"/>
+      <text x="95" y="48" class="dgm-label-bold" fill="#1e40af">u</text>
+      <!-- vector v from (1,2) goes (3,-2) so to (4,0) -->
+      <line x1="60" y1="86.7" x2="150" y2="140" stroke="#b45309" stroke-width="2.5" marker-end="url(#arrow2)"/>
+      <text x="100" y="125" class="dgm-label-bold" fill="#b45309">v</text>
+      <circle cx="60" cy="86.7" r="2.5" class="dgm-point"/>
+    </svg>
+  `,
+  cone_in_box: () => `
+    <svg viewBox="0 0 220 220" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+      <!-- box wireframe -->
+      <polygon points="50,160 170,160 170,40 50,40" class="dgm-stroke" />
+      <polygon points="80,140 200,140 200,20 80,20" class="dgm-stroke" />
+      <line x1="50" y1="40" x2="80" y2="20" class="dgm-stroke"/>
+      <line x1="170" y1="40" x2="200" y2="20" class="dgm-stroke"/>
+      <line x1="50" y1="160" x2="80" y2="140" class="dgm-stroke"/>
+      <line x1="170" y1="160" x2="200" y2="140" class="dgm-stroke"/>
+      <!-- cone -->
+      <ellipse cx="125" cy="150" rx="60" ry="14" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5" opacity="0.85"/>
+      <line x1="65" y1="150" x2="140" y2="30" stroke="#1e40af" stroke-width="1.5"/>
+      <line x1="185" y1="150" x2="140" y2="30" stroke="#1e40af" stroke-width="1.5"/>
+      <text x="125" y="190" class="dgm-label" text-anchor="middle">grundlinje 2r</text>
+      <text x="208" y="80" class="dgm-label">h</text>
+    </svg>
+  `,
+  ring: () => `
+    <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="75" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+      <circle cx="100" cy="100" r="50" fill="white" stroke="#1e40af" stroke-width="2"/>
+      <line x1="100" y1="100" x2="175" y2="100" stroke="#1e40af" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="100" y1="100" x2="100" y2="50" stroke="#b45309" stroke-width="1" stroke-dasharray="2 2"/>
+      <text x="138" y="95" class="dgm-label-bold">R = 17,5</text>
+      <text x="105" y="78" class="dgm-label-bold" fill="#b45309">r = 12,5</text>
+    </svg>
+  `,
+  right_triangle: () => `
+    <svg viewBox="0 0 220 200" width="220" height="200" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="40,160 180,160 40,40" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+      <polygon points="40,160 60,160 60,140 40,140" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+      <text x="100" y="180" class="dgm-label-bold" text-anchor="middle">b = 1,69</text>
+      <text x="14" y="105" class="dgm-label-bold">a = 1,18</text>
+      <text x="120" y="95" class="dgm-label-bold" fill="#1e40af" transform="rotate(-37, 120, 95)">c = ?</text>
+    </svg>
+  `,
+  cake_series: () => `
+    <svg viewBox="0 0 240 160" width="240" height="160" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="60" width="60" height="60" fill="#1e40af" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="40" y="95" class="dgm-label-bold" fill="white" text-anchor="middle">1/3</text>
+      <rect x="75" y="80" width="20" height="40" fill="#3b82f6" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="85" y="105" class="dgm-label" fill="white" text-anchor="middle">1/9</text>
+      <rect x="100" y="93.3" width="6.67" height="26.7" fill="#60a5fa" stroke="#1e3a8a" stroke-width="0.5"/>
+      <rect x="108" y="98" width="2.2" height="22" fill="#93c5fd" stroke="#1e3a8a" stroke-width="0.5"/>
+      <text x="125" y="115" class="dgm-label">...</text>
+      <line x1="10" y1="135" x2="180" y2="135" stroke="#1e40af" stroke-width="2"/>
+      <line x1="10" y1="132" x2="10" y2="138" stroke="#1e40af" stroke-width="2"/>
+      <line x1="180" y1="132" x2="180" y2="138" stroke="#1e40af" stroke-width="2"/>
+      <text x="95" y="150" class="dgm-label-bold" text-anchor="middle">samlet sum?</text>
+    </svg>
+  `,
+  tangent_curve: () => `
+    <svg viewBox="0 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+      ${[0,1,2,3,4,5,6,7,8].map(i => `<line x1="${30+i*25}" y1="10" x2="${30+i*25}" y2="190" class="dgm-grid"/>`).join('')}
+      ${[0,1,2,3,4,5,6,7].map(i => `<line x1="20" y1="${20+i*25}" x2="230" y2="${20+i*25}" class="dgm-grid"/>`).join('')}
+      <line x1="20" y1="100" x2="230" y2="100" class="dgm-axis"/>
+      <line x1="105" y1="190" x2="105" y2="10" class="dgm-axis"/>
+      <text x="232" y="115" class="dgm-label">x</text>
+      <text x="92" y="14" class="dgm-label">y</text>
+      <!-- g(x) = -x^3 + x + 1, scaled. Sample points roughly -->
+      <path d="M 30 30 Q 60 60 80 80 T 130 95 Q 160 110 180 145 T 220 200" stroke="#1e40af" stroke-width="2" fill="none"/>
+      <!-- Point P(1,1) -->
+      <circle cx="130" cy="75" r="4" fill="#b45309"/>
+      <text x="138" y="73" class="dgm-label-bold" fill="#b45309">P(1, 1)</text>
+      <text x="40" y="50" class="dgm-label-bold" fill="#1e40af">g</text>
+    </svg>
+  `,
+  line_field: () => `
+    <svg viewBox="0 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="100" x2="230" y2="100" class="dgm-axis"/>
+      <line x1="120" y1="10" x2="120" y2="190" class="dgm-axis"/>
+      <text x="232" y="115" class="dgm-label">x</text>
+      <text x="106" y="12" class="dgm-label">y</text>
+      <!-- linjeelementer for y' = x/y: slopes vary -->
+      ${(() => {
+        let out = '';
+        for (let i = -3; i <= 3; i++) {
+          for (let j = 1; j <= 4; j++) {
+            const x = 120 + i * 30;
+            const y = 100 - j * 30;
+            const slope = (i * 1) / j;
+            const dx = 10 / Math.sqrt(1 + slope * slope);
+            const dy = -slope * dx;
+            out += `<line x1="${x-dx}" y1="${y-dy}" x2="${x+dx}" y2="${y+dy}" stroke="#b45309" stroke-width="1.5"/>`;
+          }
+        }
+        return out;
+      })()}
+      <circle cx="180" cy="10" r="0" />
+      <circle cx="180" cy="10" r="0" />
+      <!-- P(2,3) -->
+      <circle cx="180" cy="10" r="0"/>
+      <circle cx="180" cy="10" r="0"/>
+      <circle cx="180" cy="10" r="0"/>
+      <circle cx="180" cy="10" r="0"/>
+      <text x="0" y="0"></text>
+    </svg>
+  `,
+  parametric_circle: () => `
+    <svg viewBox="0 0 220 220" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="110" x2="210" y2="110" class="dgm-axis"/>
+      <line x1="110" y1="10" x2="110" y2="210" class="dgm-axis"/>
+      <text x="212" y="125" class="dgm-label">x</text>
+      <text x="96" y="14" class="dgm-label">y</text>
+      <circle cx="110" cy="110" r="70" fill="#dbeafe" stroke="#1e40af" stroke-width="2" opacity="0.8"/>
+      <line x1="110" y1="110" x2="180" y2="110" stroke="#b45309" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="138" y="105" class="dgm-label-bold" fill="#b45309">r</text>
+      <circle cx="110" cy="110" r="3" class="dgm-point"/>
+    </svg>
+  `,
+  plane_3d: () => `
+    <svg viewBox="0 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+      <!-- axes -->
+      <line x1="120" y1="180" x2="120" y2="20" stroke="#94a3b8" stroke-width="1.2"/>
+      <line x1="40" y1="140" x2="220" y2="100" stroke="#94a3b8" stroke-width="1.2"/>
+      <line x1="60" y1="180" x2="200" y2="50" stroke="#94a3b8" stroke-width="1.2"/>
+      <text x="118" y="14" class="dgm-label">z</text>
+      <text x="222" y="98" class="dgm-label">y</text>
+      <text x="202" y="48" class="dgm-label">x</text>
+      <!-- plane -->
+      <polygon points="60,90 180,60 200,130 80,160" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5" opacity="0.7"/>
+      <text x="140" y="115" class="dgm-label-bold" fill="#1e40af" text-anchor="middle">α</text>
+      <!-- Q point -->
+      <circle cx="190" cy="35" r="4" fill="#b45309"/>
+      <text x="196" y="32" class="dgm-label-bold" fill="#b45309">Q</text>
+      <!-- distance line -->
+      <line x1="190" y1="35" x2="170" y2="80" stroke="#b45309" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="186" y="62" class="dgm-label" fill="#b45309">d</text>
+    </svg>
+  `,
+  boxplot: () => `
+    <svg viewBox="0 0 280 120" width="280" height="120" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" y1="90" x2="260" y2="90" stroke="#94a3b8" stroke-width="1"/>
+      ${[20, 40, 60, 80, 100].map((v,i) => {
+        const x = 20 + (v - 20) / 80 * 240;
+        return `<line x1="${x}" y1="86" x2="${x}" y2="94" stroke="#94a3b8" stroke-width="1"/><text x="${x}" y="110" class="dgm-label" text-anchor="middle">${v}</text>`;
+      }).join('')}
+      <!-- box from Q1=45 to Q3=75, median=58, whiskers 30 and 95 -->
+      <line x1="50" y1="60" x2="80" y2="60" stroke="#1e40af" stroke-width="1.2"/>
+      <line x1="50" y1="60" x2="50" y2="70" stroke="#1e40af" stroke-width="1.2"/>
+      <line x1="50" y1="65" x2="95" y2="65" stroke="#1e40af" stroke-width="1.2"/>
+      <rect x="95" y="50" width="90" height="30" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5"/>
+      <line x1="134" y1="50" x2="134" y2="80" stroke="#1e40af" stroke-width="2.5"/>
+      <line x1="185" y1="65" x2="245" y2="65" stroke="#1e40af" stroke-width="1.2"/>
+      <line x1="245" y1="60" x2="245" y2="70" stroke="#1e40af" stroke-width="1.2"/>
+      <text x="140" y="22" class="dgm-label-bold" text-anchor="middle">Månedlig nedbør (mm)</text>
+    </svg>
+  `,
+  euklid: () => `
+    <svg viewBox="0 0 240 150" width="240" height="150" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="15" width="200" height="120" rx="8" fill="white" stroke="#e5e9f0" stroke-width="1"/>
+      <text x="120" y="48" class="dgm-label-bold" text-anchor="middle" font-size="14">1008 = 4 · 210 + 168</text>
+      <text x="120" y="78" class="dgm-label-bold" text-anchor="middle" font-size="14">210 = 1 · 168 + 42</text>
+      <text x="120" y="108" class="dgm-label-bold" text-anchor="middle" font-size="14" fill="#1e40af">168 = 4 · 42 + 0</text>
+    </svg>
+  `,
+  vector_field_simple: () => `
+    <svg viewBox="0 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="100" x2="230" y2="100" class="dgm-axis"/>
+      <line x1="120" y1="10" x2="120" y2="190" class="dgm-axis"/>
+      <text x="232" y="115" class="dgm-label">x</text>
+      <text x="106" y="12" class="dgm-label">y</text>
+      ${(() => {
+        let out = '';
+        for (let i = -3; i <= 3; i++) {
+          for (let j = -2; j <= 2; j++) {
+            const x = 120 + i * 25;
+            const y = 100 - j * 25;
+            if (j === 0) continue;
+            const slope = (i) / (j > 0 ? j : -j);
+            const dx = 8;
+            const dy = -slope * dx;
+            const len = Math.sqrt(dx*dx + dy*dy);
+            const nx = dx / len * 9;
+            const ny = dy / len * 9;
+            out += `<line x1="${x-nx}" y1="${y-ny}" x2="${x+nx}" y2="${y+ny}" stroke="#b45309" stroke-width="1.5"/>`;
+          }
+        }
+        return out;
+      })()}
+      <circle cx="170" cy="25" r="4" fill="#1e40af"/>
+      <text x="178" y="22" class="dgm-label-bold" fill="#1e40af">P(2,3)</text>
+    </svg>
+  `,
+  recursion_growth: () => `
+    <svg viewBox="0 0 240 160" width="240" height="160" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" y1="140" x2="220" y2="140" class="dgm-axis"/>
+      <line x1="30" y1="150" x2="30" y2="20" class="dgm-axis"/>
+      <text x="222" y="155" class="dgm-label">n</text>
+      <text x="16" y="22" class="dgm-label">y</text>
+      ${[
+        {x:30, y:130, label:'y₀'},
+        {x:70, y:118, label:'y₁'},
+        {x:110, y:95, label:'y₂'},
+        {x:150, y:55, label:'y₃'},
+        {x:190, y:25, label:'y₄'}
+      ].map((p,i,a) => {
+        const prev = i > 0 ? a[i-1] : null;
+        return (prev ? `<line x1="${prev.x}" y1="${prev.y}" x2="${p.x}" y2="${p.y}" stroke="#1e40af" stroke-width="1.5"/>` : '') +
+          `<circle cx="${p.x}" cy="${p.y}" r="4" fill="#1e40af"/>` +
+          `<text x="${p.x-6}" y="${p.y-10}" class="dgm-label">${p.label}</text>`;
+      }).join('')}
+    </svg>
+  `
+};
+
+// =====================================================
+//                    QUESTION BANK
+// All questions are FULLY SELF-CONTAINED.
+// =====================================================
+const QUESTIONS = [
+  // ====================== ALGEBRA ======================
+  { id: 1, topic: "Algebra", source: "2022 D1", difficulty: "medium", xp: 15,
+    q: `<p>Reducer udtrykket nedenfor mest muligt:</p>
+        <p style="text-align:center; padding: 10px 0;">$$2(a+b)^2 + (5a+b)(a-b)$$</p>
+        <p>Det reducerede udtryk er på formen <strong>$p \\cdot a^2 + q \\cdot b^2$</strong>.</p>
+        <p>Hvad er værdien af <strong>p</strong>?</p>`,
+    type: "numeric", answer: 7,
+    hint: "Brug kvadratsætningen $(a+b)^2 = a^2 + 2ab + b^2$ på første led. Gang andet led ledvis.",
+    solution: `<p>Vi reducerer trin for trin:</p>
+      <p>$2(a+b)^2 = 2(a^2 + 2ab + b^2) = 2a^2 + 4ab + 2b^2$</p>
+      <p>$(5a+b)(a-b) = 5a^2 - 5ab + ab - b^2 = 5a^2 - 4ab - b^2$</p>
+      <p>Sum: $7a^2 + 0 \\cdot ab + b^2 = \\mathbf{7a^2 + b^2}$</p>
+      <p>Så $p = 7$.</p>` },
+
+  { id: 2, topic: "Algebra", source: "2022 D1", difficulty: "medium", xp: 15,
+    q: `<p>Reducer udtrykket nedenfor mest muligt:</p>
+        <p style="text-align:center; padding: 10px 0;">$$2(a+b)^2 + (5a+b)(a-b)$$</p>
+        <p>Det reducerede udtryk er på formen <strong>$p \\cdot a^2 + q \\cdot b^2$</strong>.</p>
+        <p>Hvad er værdien af <strong>q</strong>?</p>`,
+    type: "numeric", answer: 1,
+    hint: "$ab$-leddene ophæver hinanden. Saml $b^2$-leddene: $2b^2 - b^2$.",
+    solution: `<p>Efter reduktion (se anden version af opgaven): $7a^2 + b^2$. Koefficienten foran $b^2$ er <strong>1</strong>.</p>` },
+
+  { id: 3, topic: "Algebra", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Reducer udtrykket:</p>
+        <p style="text-align:center; padding: 10px 0;">$$(x+5)(x-5)$$</p>
+        <p>Hvad er konstantleddet (tallet uden $x$)?</p>`,
+    type: "numeric", answer: -25,
+    hint: "Brug kvadratsætningen $(a+b)(a-b) = a^2 - b^2$.",
+    solution: `<p>$(x+5)(x-5) = x^2 - 25$. Konstantleddet er <strong>−25</strong>.</p>` },
+
+  { id: 4, topic: "Algebra", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Løs ligningen $3x + 7 = 22$. Indtast værdien af $x$.</p>`,
+    type: "numeric", answer: 5,
+    hint: "Træk 7 fra på begge sider, divider derefter med 3.",
+    solution: `<p>$3x = 15 \\Rightarrow x = 5$</p>` },
+
+  { id: 5, topic: "Algebra", source: "2021 D1", difficulty: "easy", xp: 10,
+    q: `<p>Er $x = 2$ en løsning til ligningen $x^2 + x = 6$?</p>
+        <p>Indtast <strong>1</strong> for ja, eller <strong>0</strong> for nej.</p>`,
+    type: "numeric", answer: 1,
+    hint: "Indsæt $x = 2$ i venstre side og tjek om det giver 6.",
+    solution: `<p>$2^2 + 2 = 4 + 2 = 6$ ✓ — ja, det er en løsning. <strong>1</strong></p>` },
+
+  // ====================== FUNKTIONER ======================
+  { id: 6, topic: "Funktioner", source: "2023 D1", difficulty: "easy", xp: 10,
+    q: `<p>Funktionen $f$ er givet ved $f(x) = \\sqrt{14 - x}$ for $x \\leq 14$.</p>
+        <p>Bestem $f(-2)$.</p>`,
+    type: "numeric", answer: 4,
+    hint: "Indsæt $x = -2$. Husk at minus minus bliver plus.",
+    solution: `<p>$f(-2) = \\sqrt{14 - (-2)} = \\sqrt{16} = 4$</p>` },
+
+  { id: 7, topic: "Funktioner", source: "2023 D1", difficulty: "easy", xp: 10,
+    q: `<p>Funktionen er givet ved $f(x) = \\sqrt{14 - x}$.</p>
+        <p>For hvilken $x$-værdi gælder $f(x) = 1$?</p>`,
+    type: "numeric", answer: 13,
+    hint: "Sæt $\\sqrt{14-x} = 1$ og kvadrer begge sider.",
+    solution: `<p>$\\sqrt{14-x} = 1 \\Rightarrow 14 - x = 1 \\Rightarrow x = 13$</p>` },
+
+  { id: 8, topic: "Funktioner", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>$f(x) = 3x - 7$. Bestem $x$-koordinaten af skæringen mellem grafen for $f$ og $x$-aksen.</p>`,
+    type: "numeric", answer: 2.333, tolerance: 0.01,
+    hint: "Skæringen med $x$-aksen er der hvor $f(x) = 0$.",
+    solution: `<p>$3x - 7 = 0 \\Rightarrow x = 7/3 \\approx 2{,}33$</p>` },
+
+  { id: 9, topic: "Funktioner", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>$f(x) = 2^x$. Bestem $f(3)$.</p>`,
+    type: "numeric", answer: 8,
+    hint: "$2^3 = 2 \\cdot 2 \\cdot 2$",
+    solution: `<p>$f(3) = 2^3 = 8$</p>` },
+
+  // ====================== DIFFERENTIALREGNING ======================
+  { id: 10, topic: "Differentialregning", source: "2023 D1", difficulty: "medium", xp: 15,
+    diagram: "tangent_curve",
+    q: `<p>Funktionen er givet ved $g(x) = -x^3 + x + 1$.</p>
+        <p>Bestem $g'(1)$.</p>`,
+    type: "numeric", answer: -2,
+    hint: "$g'(x) = -3x^2 + 1$. Indsæt derefter $x=1$.",
+    solution: `<p>$g'(x) = -3x^2 + 1$</p><p>$g'(1) = -3 \\cdot 1 + 1 = -2$</p>` },
+
+  { id: 11, topic: "Differentialregning", source: "2023 D1", difficulty: "medium", xp: 20,
+    diagram: "tangent_curve",
+    q: `<p>Grafen for $g(x) = -x^3 + x + 1$ er vist til højre.</p>
+        <p>Tangenten i punktet $P(1, 1)$ har ligningen $y = a \\cdot x + b$.</p>
+        <p>Bestem værdien af <strong>a</strong>.</p>`,
+    type: "numeric", answer: -2,
+    hint: "Hældningen $a$ af tangenten er $g'(x_0)$ hvor $x_0 = 1$.",
+    solution: `<p>$a = g'(1) = -3 \\cdot 1^2 + 1 = -2$</p>` },
+
+  { id: 12, topic: "Differentialregning", source: "2023 D1", difficulty: "medium", xp: 20,
+    diagram: "tangent_curve",
+    q: `<p>Grafen for $g(x) = -x^3 + x + 1$ er vist til højre.</p>
+        <p>Tangenten i punktet $P(1, 1)$ har ligningen $y = a \\cdot x + b$.</p>
+        <p>Bestem værdien af <strong>b</strong>.</p>`,
+    type: "numeric", answer: 3,
+    hint: "Hældningen er $a = g'(1) = -2$. Indsæt $P(1,1)$ i $y = ax + b$ og løs for $b$.",
+    solution: `<p>$g'(x) = -3x^2 + 1$, så $a = g'(1) = -2$.</p>
+      <p>Punkt $P(1,1)$ skal opfylde: $1 = -2 \\cdot 1 + b \\Rightarrow b = 3$</p>
+      <p>Tangenten er: $y = -2x + 3$</p>` },
+
+  { id: 13, topic: "Differentialregning", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Differentier funktionen $f(x) = 3x^2 + 2\\sin(x)$.</p>
+        <p>Bestem $f'(0)$.</p>`,
+    type: "numeric", answer: 2,
+    hint: "$f'(x) = 6x + 2\\cos(x)$, og $\\cos(0) = 1$.",
+    solution: `<p>$f'(x) = 6x + 2\\cos(x)$</p><p>$f'(0) = 0 + 2 \\cdot 1 = 2$</p>` },
+
+  { id: 14, topic: "Differentialregning", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Differentier funktionen $f(x) = \\ln(x^2 + 1)$.</p>
+        <p>Bestem $f'(1)$.</p>`,
+    type: "numeric", answer: 1,
+    hint: "Brug kædereglen: $\\frac{d}{dx}\\ln(u) = u'/u$.",
+    solution: `<p>$f'(x) = \\frac{2x}{x^2 + 1}$</p><p>$f'(1) = \\frac{2}{2} = 1$</p>` },
+
+  { id: 15, topic: "Differentialregning", source: "Standard", difficulty: "hard", xp: 25,
+    q: `<p>Differentier funktionen $h(x) = x^2 \\cdot e^x$.</p>
+        <p>Bestem $h'(1)$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 8.15, tolerance: 0.05,
+    hint: "Produktreglen: $(u \\cdot v)' = u'v + uv'$.",
+    solution: `<p>$h'(x) = 2x \\cdot e^x + x^2 \\cdot e^x = e^x(2x + x^2)$</p>
+      <p>$h'(1) = e \\cdot 3 \\approx 8{,}15$</p>` },
+
+  { id: 16, topic: "Differentialregning", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Differentier funktionen $f(x) = e^{3x}$.</p>
+        <p>Bestem $f'(0)$.</p>`,
+    type: "numeric", answer: 3,
+    hint: "Brug kædereglen: $\\frac{d}{dx}e^{u} = u' \\cdot e^u$.",
+    solution: `<p>$f'(x) = 3 e^{3x}$</p><p>$f'(0) = 3 \\cdot 1 = 3$</p>` },
+
+  { id: 17, topic: "Differentialregning", source: "Standard", difficulty: "medium", xp: 20,
+    q: `<p>Funktionen $f(x) = -x^2 + 4x + 1$ har et globalt maksimum.</p>
+        <p>Bestem $x$-værdien hvor maksimum forekommer.</p>`,
+    type: "numeric", answer: 2,
+    hint: "Maksimum findes hvor $f'(x) = 0$. Differentier og løs.",
+    solution: `<p>$f'(x) = -2x + 4 = 0 \\Rightarrow x = 2$.</p>
+      <p>Da $f''(x) = -2 < 0$, er det et maksimum. $f(2) = -4 + 8 + 1 = 5$.</p>` },
+
+  // ====================== STAMFUNKTION / INTEGRAL ======================
+  { id: 18, topic: "Integralregning", source: "2022 D1", difficulty: "hard", xp: 25,
+    q: `<p>$F$ er en stamfunktion til $f(x) = 2x + 4e^x - 3\\sin(x)$.</p>
+        <p>Det vides at $F(x)$ er på formen:</p>
+        <p style="text-align:center;">$$F(x) = x^2 + 4e^x + 3\\cos(x) + k$$</p>
+        <p>Bestem konstanten $k$ når <strong>$F(0) = 5$</strong>.</p>`,
+    type: "numeric", answer: -2,
+    hint: "Indsæt $x = 0$: $F(0) = 0 + 4 + 3 + k = 7 + k$. Sæt lig med 5.",
+    solution: `<p>Først tjek differentiation: $F'(x) = 2x + 4e^x - 3\\sin(x) = f(x)$ ✓</p>
+      <p>$F(0) = 0^2 + 4 e^0 + 3\\cos(0) + k = 0 + 4 + 3 + k = 7 + k$</p>
+      <p>$7 + k = 5 \\Rightarrow k = -2$</p>` },
+
+  { id: 19, topic: "Integralregning", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Beregn det bestemte integral:</p>
+        <p style="text-align:center; padding: 10px 0;">$$\\int_0^2 (3x^2 + 2)\\, dx$$</p>`,
+    type: "numeric", answer: 12,
+    hint: "Stamfunktion er $x^3 + 2x$. Indsæt grænserne.",
+    solution: `<p>$\\int (3x^2 + 2)\\, dx = x^3 + 2x$</p>
+      <p>$[x^3 + 2x]_0^2 = (8 + 4) - 0 = 12$</p>` },
+
+  { id: 20, topic: "Integralregning", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Beregn det bestemte integral:</p>
+        <p style="text-align:center; padding: 10px 0;">$$\\int_1^e \\frac{1}{x}\\, dx$$</p>`,
+    type: "numeric", answer: 1,
+    hint: "Stamfunktion til $1/x$ er $\\ln(x)$. Husk at $\\ln(e) = 1$.",
+    solution: `<p>$[\\ln(x)]_1^e = \\ln(e) - \\ln(1) = 1 - 0 = 1$</p>` },
+
+  { id: 21, topic: "Integralregning", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Beregn det bestemte integral:</p>
+        <p style="text-align:center; padding: 10px 0;">$$\\int_0^{\\pi} \\sin(x)\\, dx$$</p>`,
+    type: "numeric", answer: 2,
+    hint: "Stamfunktion til $\\sin(x)$ er $-\\cos(x)$. $\\cos(\\pi) = -1$, $\\cos(0) = 1$.",
+    solution: `<p>$[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos(0)) = -(-1) - (-1) = 2$</p>` },
+
+  { id: 22, topic: "Integralregning", source: "2024 D2", difficulty: "hard", xp: 25,
+    q: `<p>En model for antal visninger af e-bøger og lydbøger pr. år er:</p>
+        <p style="text-align:center;">$$v(x) = 2{,}46 \\cdot 1{,}28^x$$</p>
+        <p>Beregn det totale antal visninger over perioden $x = 0$ til $x = 6$:</p>
+        <p style="text-align:center; padding: 6px 0;">$$\\int_0^6 v(x)\\, dx$$</p>
+        <p>Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 33.86, tolerance: 0.15,
+    hint: "Stamfunktion til $a \\cdot b^x$ er $\\frac{a \\cdot b^x}{\\ln(b)}$.",
+    solution: `<p>$\\int 2{,}46 \\cdot 1{,}28^x\\, dx = \\frac{2{,}46 \\cdot 1{,}28^x}{\\ln(1{,}28)}$</p>
+      <p>Indsæt grænserne: $\\frac{2{,}46}{\\ln(1{,}28)}(1{,}28^6 - 1)$</p>
+      <p>$\\approx 9{,}96 \\cdot (4{,}398 - 1) \\approx 33{,}86$ mio. visninger</p>` },
+
+  // ====================== VEKTORER 2D ======================
+  { id: 23, topic: "Vektorer 2D", source: "2022 D1", difficulty: "easy", xp: 10,
+    diagram: "vectors2d",
+    q: `<p>To vektorer er givet ved:</p>
+        <p style="text-align:center;">$$\\vec{u} = \\binom{3}{4}, \\quad \\vec{v} = \\binom{3}{-2}$$</p>
+        <p>Bestem <strong>x-koordinaten</strong> af $\\vec{u} - \\vec{v}$.</p>`,
+    type: "numeric", answer: 0,
+    hint: "Vektor-subtraktion sker koordinatvis: $\\vec{u} - \\vec{v} = \\binom{u_x - v_x}{u_y - v_y}$.",
+    solution: `<p>$\\vec{u} - \\vec{v} = \\binom{3 - 3}{4 - (-2)} = \\binom{0}{6}$</p><p>x-koordinaten er <strong>0</strong>.</p>` },
+
+  { id: 24, topic: "Vektorer 2D", source: "2022 D1", difficulty: "easy", xp: 10,
+    diagram: "vectors2d",
+    q: `<p>To vektorer er givet ved:</p>
+        <p style="text-align:center;">$$\\vec{u} = \\binom{3}{4}, \\quad \\vec{v} = \\binom{3}{-2}$$</p>
+        <p>Bestem <strong>y-koordinaten</strong> af $\\vec{u} - \\vec{v}$.</p>`,
+    type: "numeric", answer: 6,
+    hint: "Pas på fortegnet: $4 - (-2) = 4 + 2$.",
+    solution: `<p>$\\vec{u} - \\vec{v} = \\binom{0}{6}$. y-koordinaten er <strong>6</strong>.</p>` },
+
+  { id: 25, topic: "Vektorer 2D", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Bestem længden af vektoren $\\vec{v} = \\binom{6}{8}$.</p>`,
+    type: "numeric", answer: 10,
+    hint: "$|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$",
+    solution: `<p>$|\\vec{v}| = \\sqrt{36 + 64} = \\sqrt{100} = 10$</p>` },
+
+  { id: 26, topic: "Vektorer 2D", source: "2023 D1", difficulty: "medium", xp: 15,
+    q: `<p>Vektoren $\\vec{a}$ er givet ved:</p>
+        <p style="text-align:center;">$$\\vec{a} = \\binom{5}{3}$$</p>
+        <p>Bestem <strong>x-koordinaten</strong> af enhedsvektoren i $\\vec{a}$'s retning. Afrund til 3 decimaler.</p>`,
+    type: "numeric", answer: 0.857, tolerance: 0.005,
+    hint: "Enhedsvektoren er $\\vec{a} / |\\vec{a}|$. Først find $|\\vec{a}| = \\sqrt{5^2 + 3^2}$.",
+    solution: `<p>$|\\vec{a}| = \\sqrt{25 + 9} = \\sqrt{34}$</p>
+      <p>Enhedsvektor: $\\frac{1}{\\sqrt{34}}\\binom{5}{3} \\approx \\binom{0{,}857}{0{,}514}$</p>` },
+
+  { id: 27, topic: "Vektorer 2D", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Bestem skalarproduktet (prikproduktet) af:</p>
+        <p style="text-align:center;">$$\\vec{u} = \\binom{2}{3}, \\quad \\vec{v} = \\binom{4}{-1}$$</p>`,
+    type: "numeric", answer: 5,
+    hint: "$\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y$",
+    solution: `<p>$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$</p>` },
+
+  { id: 28, topic: "Vektorer 2D", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Bestem vinklen i grader mellem vektorerne:</p>
+        <p style="text-align:center;">$$\\vec{u} = \\binom{1}{0}, \\quad \\vec{v} = \\binom{1}{1}$$</p>`,
+    type: "numeric", answer: 45, tolerance: 0.5,
+    hint: "$\\cos(\\theta) = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}$",
+    solution: `<p>$\\vec{u} \\cdot \\vec{v} = 1$, $|\\vec{u}| = 1$, $|\\vec{v}| = \\sqrt{2}$.</p>
+      <p>$\\cos(\\theta) = \\frac{1}{\\sqrt{2}} \\Rightarrow \\theta = 45°$</p>` },
+
+  // ====================== RUMGEOMETRI ======================
+  { id: 29, topic: "Rumgeometri", source: "2024 D2", difficulty: "medium", xp: 15,
+    diagram: "plane_3d",
+    q: `<p>Et punkt er givet ved $A(0;\\ 2;\\ k)$.</p>
+        <p>$A$ skal ligge i planen $\\alpha$ med ligningen:</p>
+        <p style="text-align:center;">$$4x + 9y - 10z + 22 = 0$$</p>
+        <p>Bestem værdien af $k$.</p>`,
+    type: "numeric", answer: 4,
+    hint: "Indsæt $A$'s koordinater i planens ligning og løs for $k$.",
+    solution: `<p>$4(0) + 9(2) - 10k + 22 = 0$</p>
+      <p>$0 + 18 - 10k + 22 = 0 \\Rightarrow 40 = 10k \\Rightarrow k = 4$</p>` },
+
+  { id: 30, topic: "Rumgeometri", source: "2021 D2", difficulty: "hard", xp: 25,
+    diagram: "plane_3d",
+    q: `<p>Givet planen $\\alpha$ og punktet $Q$:</p>
+        <p style="text-align:center;">$$\\alpha: 2x - 2y + 5z - 3 = 0, \\quad Q(-5;\\ 3;\\ 2)$$</p>
+        <p>Bestem afstanden fra $Q$ til $\\alpha$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 1.57, tolerance: 0.05,
+    hint: "Formlen er $d = \\frac{|a x_0 + b y_0 + c z_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}$.",
+    solution: `<p>Tæller: $|2(-5) - 2(3) + 5(2) - 3| = |-10 - 6 + 10 - 3| = |-9| = 9$</p>
+      <p>Nævner: $\\sqrt{2^2 + (-2)^2 + 5^2} = \\sqrt{4 + 4 + 25} = \\sqrt{33}$</p>
+      <p>$d = \\frac{9}{\\sqrt{33}} \\approx 1{,}57$</p>` },
+
+  { id: 31, topic: "Rumgeometri", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Bestem <strong>z-koordinaten</strong> af krydsproduktet:</p>
+        <p style="text-align:center;">$$\\vec{a} \\times \\vec{b}, \\quad \\vec{a} = (1;\\ 2;\\ 3), \\quad \\vec{b} = (4;\\ 5;\\ 6)$$</p>`,
+    type: "numeric", answer: -3,
+    hint: "z-komponenten af krydsproduktet er $a_x b_y - a_y b_x$.",
+    solution: `<p>$z = 1 \\cdot 5 - 2 \\cdot 4 = 5 - 8 = -3$</p>` },
+
+  { id: 32, topic: "Rumgeometri", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>En plan har normalvektoren $\\vec{n} = (3;\\ 4;\\ 12)$.</p>
+        <p>Bestem længden $|\\vec{n}|$.</p>`,
+    type: "numeric", answer: 13,
+    hint: "$|\\vec{n}| = \\sqrt{n_x^2 + n_y^2 + n_z^2}$",
+    solution: `<p>$|\\vec{n}| = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$</p>` },
+
+  { id: 33, topic: "Rumgeometri", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Linjen $l$ er givet ved parameterfremstillingen:</p>
+        <p style="text-align:center;">$$\\binom{x}{y}{z} = \\binom{1}{2}{3} + t \\cdot \\binom{2}{-1}{1}$$</p>
+        <p>Bestem $x$-koordinaten af punktet på linjen når $t = 2$.</p>`,
+    type: "numeric", answer: 5,
+    hint: "$x = 1 + 2t$. Sæt $t = 2$.",
+    solution: `<p>$x = 1 + 2 \\cdot 2 = 5$. (Hele punktet: $(5;\\ 0;\\ 5)$.)</p>` },
+
+  // ====================== TRIGONOMETRI ======================
+  { id: 34, topic: "Trigonometri", source: "2022 D2", difficulty: "medium", xp: 15,
+    diagram: "right_triangle",
+    q: `<p>En retvinklet trekant har kateter $a = 1{,}18$ og $b = 1{,}69$ (se figur).</p>
+        <p>Bestem hypotenusen $c$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 2.06, tolerance: 0.02,
+    hint: "Pythagoras' sætning: $c^2 = a^2 + b^2$.",
+    solution: `<p>$c = \\sqrt{1{,}18^2 + 1{,}69^2} = \\sqrt{1{,}3924 + 2{,}8561} = \\sqrt{4{,}2485} \\approx 2{,}06$</p>` },
+
+  { id: 35, topic: "Trigonometri", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>I trekant $ABC$ er $a = 5$, $b = 7$, og vinkel $C = 60°$ (vinklen mellem $a$ og $b$).</p>
+        <p>Bestem siden $c$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 6.24, tolerance: 0.05,
+    hint: "Cosinusrelationen: $c^2 = a^2 + b^2 - 2ab\\cos(C)$",
+    solution: `<p>$c^2 = 25 + 49 - 2 \\cdot 5 \\cdot 7 \\cdot \\cos(60°)$</p>
+      <p>$c^2 = 74 - 70 \\cdot 0{,}5 = 74 - 35 = 39$</p>
+      <p>$c = \\sqrt{39} \\approx 6{,}24$</p>` },
+
+  { id: 36, topic: "Trigonometri", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Bestem værdien af $\\sin(30°)$. Indtast som decimal.</p>`,
+    type: "numeric", answer: 0.5, tolerance: 0.005,
+    hint: "Standardværdi du bør kende.",
+    solution: `<p>$\\sin(30°) = 1/2 = 0{,}5$</p>` },
+
+  { id: 37, topic: "Trigonometri", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>I en trekant er $a = 4$, $b = 6$, og mellemvinklen er $C = 30°$.</p>
+        <p>Bestem trekantens areal. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 6, tolerance: 0.05,
+    hint: "Arealformel: $T = \\frac{1}{2} ab\\sin(C)$.",
+    solution: `<p>$T = \\frac{1}{2} \\cdot 4 \\cdot 6 \\cdot \\sin(30°) = 12 \\cdot 0{,}5 = 6$</p>` },
+
+  // ====================== GEOMETRI ======================
+  { id: 38, topic: "Geometri", source: "2023 D1", difficulty: "hard", xp: 25,
+    diagram: "cone_in_box",
+    q: `<p>En kegle med radius $r$ og højde $h$ omsluttes akkurat af en kasse med kvadratisk grundflade (kantlængde $2r$) og højde $h$, som vist på figuren.</p>
+        <p>Hvor mange procent af kassens volumen optager keglen? Afrund til hele tal.</p>`,
+    type: "numeric", answer: 26, tolerance: 1,
+    hint: "$V_{\\text{kegle}} = \\frac{1}{3}\\pi r^2 h$. $V_{\\text{kasse}} = (2r)^2 \\cdot h$.",
+    solution: `<p>Forhold: $\\frac{V_{\\text{kegle}}}{V_{\\text{kasse}}} = \\frac{\\frac{1}{3}\\pi r^2 h}{4 r^2 h} = \\frac{\\pi}{12} \\approx 0{,}2618$</p>
+      <p>Det er ca. <strong>26 %</strong>.</p>` },
+
+  { id: 39, topic: "Geometri", source: "2023 D2", difficulty: "easy", xp: 10,
+    diagram: "ring",
+    q: `<p>En cirkelring har ydre radius $R = 17{,}5$ og indre radius $r = 12{,}5$ (se figur).</p>
+        <p>Bestem ringens areal. Afrund til hele tal.</p>`,
+    type: "numeric", answer: 471, tolerance: 2,
+    hint: "$A = \\pi(R^2 - r^2)$",
+    solution: `<p>$A = \\pi(17{,}5^2 - 12{,}5^2) = \\pi(306{,}25 - 156{,}25) = 150\\pi \\approx 471{,}24$</p>` },
+
+  { id: 40, topic: "Geometri", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Cirklen er givet ved ligningen:</p>
+        <p style="text-align:center;">$$(x - 3)^2 + (y + 2)^2 = 25$$</p>
+        <p>Bestem cirklens radius.</p>`,
+    type: "numeric", answer: 5,
+    hint: "Standardform: $(x-a)^2 + (y-b)^2 = r^2$",
+    solution: `<p>$r^2 = 25 \\Rightarrow r = 5$. Centrum er $(3, -2)$.</p>` },
+
+  { id: 41, topic: "Geometri", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>En kegle har radius $r = 3$ og højde $h = 4$.</p>
+        <p>Bestem keglens rumfang. Afrund til hele tal.</p>`,
+    type: "numeric", answer: 38, tolerance: 1,
+    hint: "$V = \\frac{1}{3}\\pi r^2 h$",
+    solution: `<p>$V = \\frac{1}{3}\\pi \\cdot 9 \\cdot 4 = 12\\pi \\approx 37{,}70$</p>` },
+
+  { id: 42, topic: "Geometri", source: "2022 D2", difficulty: "hard", xp: 25,
+    q: `<p>Arealet af et cirkelafsnit i en enhedscirkel er givet ved:</p>
+        <p style="text-align:center;">$$A(x) = \\frac{1}{2}\\left(x - \\sin(x)\\right)$$</p>
+        <p>hvor $x$ er vinklen i radianer.</p>
+        <p>Bestem $A(2)$. Afrund til 3 decimaler.</p>`,
+    type: "numeric", answer: 0.545, tolerance: 0.005,
+    hint: "Husk at $\\sin(2)$ tages med 2 som radianer, ikke grader.",
+    solution: `<p>$A(2) = \\frac{1}{2}(2 - \\sin(2)) = \\frac{1}{2}(2 - 0{,}9093) \\approx 0{,}545$</p>` },
+
+  // ====================== TALFØLGER / RÆKKER ======================
+  { id: 43, topic: "Talfølger", source: "2019 D1", difficulty: "medium", xp: 15,
+    diagram: "recursion_growth",
+    q: `<p>En talfølge er givet ved rekursionsligningen:</p>
+        <p style="text-align:center;">$$y_{n+1} = 2 \\cdot y_n - 1$$</p>
+        <p>Det vides at $y_2 = 5$.</p>
+        <p>Bestem startværdien $y_0$.</p>`,
+    type: "numeric", answer: 2,
+    hint: "Reglen baglæns: $y_n = (y_{n+1} + 1)/2$.",
+    solution: `<p>$y_1 = (y_2 + 1)/2 = (5+1)/2 = 3$</p>
+      <p>$y_0 = (y_1 + 1)/2 = (3+1)/2 = 2$</p>
+      <p>Tjek frem: $2 \\to 3 \\to 5$ ✓</p>` },
+
+  { id: 44, topic: "Talfølger", source: "2022 D2", difficulty: "medium", xp: 15,
+    diagram: "cake_series",
+    q: `<p>En uendelig geometrisk række er givet ved:</p>
+        <p style="text-align:center;">$$\\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\frac{1}{81} + \\dots$$</p>
+        <p>Bestem rækkens sum.</p>`,
+    type: "numeric", answer: 0.5, tolerance: 0.005,
+    hint: "Formel: $S = \\frac{a}{1 - r}$, hvor $a$ er første led og $r$ er kvotienten.",
+    solution: `<p>Første led $a = 1/3$, kvotient $r = 1/3$.</p>
+      <p>$S = \\frac{1/3}{1 - 1/3} = \\frac{1/3}{2/3} = \\frac{1}{2}$</p>` },
+
+  { id: 45, topic: "Talfølger", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>En aritmetisk talfølge har $a_1 = 3$ og differens $d = 2$.</p>
+        <p>Bestem summen af de første 10 led.</p>`,
+    type: "numeric", answer: 120,
+    hint: "Sumformel: $S_n = \\frac{n}{2}(2 a_1 + (n-1)d)$",
+    solution: `<p>$S_{10} = \\frac{10}{2}(2 \\cdot 3 + 9 \\cdot 2) = 5 \\cdot (6 + 18) = 5 \\cdot 24 = 120$</p>` },
+
+  // ====================== DIFFERENTIALLIGNINGER ======================
+  { id: 46, topic: "Diff.ligninger", source: "2023 D2", difficulty: "medium", xp: 15,
+    q: `<p>Væksten af en labradorhund er beskrevet ved differentialligningen:</p>
+        <p style="text-align:center;">$$\\frac{dN}{dt} = N(0{,}48 - 0{,}016 N)$$</p>
+        <p>$N$ er vægten i kg, $t$ er tiden i måneder.</p>
+        <p>Bestem $\\frac{dN}{dt}$ når $N = 6$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 2.30, tolerance: 0.05,
+    hint: "Bare indsæt $N = 6$.",
+    solution: `<p>$\\frac{dN}{dt} = 6 \\cdot (0{,}48 - 0{,}016 \\cdot 6) = 6 \\cdot (0{,}48 - 0{,}096) = 6 \\cdot 0{,}384 = 2{,}304$</p>
+      <p>Væksten er ca. <strong>2,30 kg/måned</strong>.</p>` },
+
+  { id: 47, topic: "Diff.ligninger", source: "2021 D2", difficulty: "medium", xp: 15,
+    q: `<p>Eulers metode anvendes på differentialligningen:</p>
+        <p style="text-align:center;">$$\\frac{dy}{dx} = y + 5$$</p>
+        <p>med startbetingelse $y_0 = 1$ og skridtlængde $h = 0{,}05$.</p>
+        <p>Bestem værdien af $y_1$.</p>`,
+    type: "numeric", answer: 1.3, tolerance: 0.005,
+    hint: "Eulers formel: $y_{n+1} = y_n + h \\cdot f(x_n, y_n)$. Her er $f = y + 5$.",
+    solution: `<p>$y_1 = y_0 + h \\cdot (y_0 + 5) = 1 + 0{,}05 \\cdot (1 + 5) = 1 + 0{,}30 = 1{,}30$</p>` },
+
+  { id: 48, topic: "Diff.ligninger", source: "2021 D2", difficulty: "hard", xp: 20,
+    q: `<p>Eulers metode anvendes på $\\frac{dy}{dx} = y + 5$ med skridtlængde $h = 0{,}05$.</p>
+        <p>Det er allerede beregnet at $y_1 = 1{,}30$.</p>
+        <p>Bestem $y_2$. Afrund til 4 decimaler.</p>`,
+    type: "numeric", answer: 1.6150, tolerance: 0.005,
+    hint: "Brug samme formel med $y_1 = 1,30$.",
+    solution: `<p>$y_2 = y_1 + h \\cdot (y_1 + 5) = 1{,}30 + 0{,}05 \\cdot 6{,}30 = 1{,}30 + 0{,}315 = 1{,}615$</p>` },
+
+  { id: 49, topic: "Diff.ligninger", source: "2021 D2", difficulty: "medium", xp: 15,
+    q: `<p>Vis at funktionen $f(x) = 6 e^x - 5$ er en løsning til differentialligningen:</p>
+        <p style="text-align:center;">$$\\frac{dy}{dx} = y + 5$$</p>
+        <p>(Selv-bedøm: tjek løsningen og marker om du fik det rigtigt.)</p>`,
+    type: "self",
+    hint: "Differentier $f$, og tjek om $f'(x) = f(x) + 5$.",
+    solution: `<p>Vi differentierer: $f'(x) = 6 e^x$.</p>
+      <p>Højresiden: $f(x) + 5 = (6 e^x - 5) + 5 = 6 e^x$.</p>
+      <p>Da $f'(x) = f(x) + 5$, er $f$ en løsning. ✓</p>` },
+
+  // ====================== NUMERISKE METODER ======================
+  { id: 50, topic: "Numeriske metoder", source: "2021 D2", difficulty: "hard", xp: 25,
+    q: `<p>Taylor-polynomiet af grad 2 til $f(x) = e^x$ omkring $x_0 = 0$ er:</p>
+        <p style="text-align:center;">$$P_2(x) = 1 + x + \\frac{x^2}{2}$$</p>
+        <p>Bestem $P_2(0{,}5)$. Afrund til 3 decimaler.</p>`,
+    type: "numeric", answer: 1.625, tolerance: 0.005,
+    hint: "Indsæt $x = 0{,}5$ direkte.",
+    solution: `<p>$P_2(0{,}5) = 1 + 0{,}5 + \\frac{0{,}25}{2} = 1 + 0{,}5 + 0{,}125 = 1{,}625$</p>
+      <p>Reel værdi: $e^{0{,}5} \\approx 1{,}6487$.</p>` },
+
+  { id: 51, topic: "Numeriske metoder", source: "2022 D2", difficulty: "hard", xp: 25,
+    q: `<p>Newtons metode skal anvendes på funktionen:</p>
+        <p style="text-align:center;">$$B(x) = \\frac{1}{2}(x - \\sin(x)) - 0{,}7$$</p>
+        <p>Bestem $B'(\\pi)$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 1, tolerance: 0.02,
+    hint: "$B'(x) = \\frac{1}{2}(1 - \\cos(x))$. Husk $\\cos(\\pi) = -1$.",
+    solution: `<p>$B'(x) = \\frac{1}{2}(1 - \\cos(x))$</p>
+      <p>$B'(\\pi) = \\frac{1}{2}(1 - (-1)) = \\frac{1}{2} \\cdot 2 = 1$</p>` },
+
+  // ====================== MODELLERING ======================
+  { id: 52, topic: "Modellering", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>En eksponentiel model er givet ved:</p>
+        <p style="text-align:center;">$$y = 2{,}46 \\cdot 1{,}28^x$$</p>
+        <p>Bestem fordoblingskonstanten $T_2$. Afrund til 2 decimaler.</p>`,
+    type: "numeric", answer: 2.81, tolerance: 0.05,
+    hint: "Formel: $T_2 = \\frac{\\ln(2)}{\\ln(a)}$ hvor $a$ er fremskrivningsfaktoren.",
+    solution: `<p>$T_2 = \\frac{\\ln(2)}{\\ln(1{,}28)} = \\frac{0{,}693}{0{,}247} \\approx 2{,}81$</p>` },
+
+  { id: 53, topic: "Modellering", source: "2024 D2", difficulty: "medium", xp: 15,
+    q: `<p>En lineær model $u(t) = a \\cdot t + b$ er tilpasset to datapunkter:</p>
+        <p style="text-align:center;">$(0,\\ 12)$ og $(6,\\ 6)$</p>
+        <p>Bestem hældningen $a$.</p>`,
+    type: "numeric", answer: -1, tolerance: 0.05,
+    hint: "$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$",
+    solution: `<p>$a = \\frac{6 - 12}{6 - 0} = \\frac{-6}{6} = -1$</p>` },
+
+  { id: 54, topic: "Modellering", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>En potens-model er givet ved $p(r) = b \\cdot r^a$.</p>
+        <p>Modellen er tilpasset to datapunkter: $(27;\\ 225)$ og $(54;\\ 1800)$.</p>
+        <p>Bestem eksponenten $a$. Afrund til 1 decimal.</p>`,
+    type: "numeric", answer: 3, tolerance: 0.05,
+    hint: "Når $r$ fordobles, ganges $p$ med $2^a$. Her: $1800/225 = 8 = 2^a$.",
+    solution: `<p>$\\frac{p(54)}{p(27)} = \\frac{(54/27)^a \\cdot b}{b} = 2^a$</p>
+      <p>$\\frac{1800}{225} = 8 = 2^3 \\Rightarrow a = 3$</p>` },
+
+  // ====================== STATISTIK / SANDSYNLIGHED ======================
+  { id: 55, topic: "Sandsynlighed", source: "Standard", difficulty: "medium", xp: 15,
+    q: `<p>Bestem sandsynligheden for at få <strong>mindst én sekser</strong> ved 3 kast med en almindelig terning. Afrund til 3 decimaler.</p>`,
+    type: "numeric", answer: 0.421, tolerance: 0.005,
+    hint: "Brug komplementærhændelsen: $P(\\text{mindst én}) = 1 - P(\\text{ingen sekser})$.",
+    solution: `<p>$P(\\text{ingen sekser i 1 kast}) = 5/6$</p>
+      <p>$P(\\text{ingen sekser i 3 kast}) = (5/6)^3 = 125/216$</p>
+      <p>$P(\\text{mindst én}) = 1 - 125/216 = 91/216 \\approx 0{,}421$</p>` },
+
+  { id: 56, topic: "Statistik", source: "2021 D2", difficulty: "easy", xp: 10,
+    diagram: "boxplot",
+    q: `<p>Boxplottet til højre viser månedlig nedbør i mm.</p>
+        <p>Median aflæses til ca. 58, og kvartilbredden ses som boksens bredde.</p>
+        <p>Hvis $Q_1 = 50$ og $Q_3 = 70$, hvad er kvartilbredden (IQR)?</p>`,
+    type: "numeric", answer: 20,
+    hint: "$\\text{IQR} = Q_3 - Q_1$",
+    solution: `<p>$\\text{IQR} = 70 - 50 = 20$</p>` },
+
+  { id: 57, topic: "Statistik", source: "Standard", difficulty: "easy", xp: 10,
+    q: `<p>Bestem middelværdien (gennemsnittet) af datasættet:</p>
+        <p style="text-align:center;">$\\{2,\\ 4,\\ 6,\\ 8,\\ 10\\}$</p>`,
+    type: "numeric", answer: 6,
+    hint: "Sum divideret med antallet.",
+    solution: `<p>Middel = $(2+4+6+8+10)/5 = 30/5 = 6$</p>` },
+
+  // ====================== SELF-GRADE (BEVISER) ======================
+  { id: 58, topic: "Geometri", source: "2022 D1", difficulty: "hard", xp: 25,
+    diagram: "thales",
+    q: `<p>Trekant $ABC$ er indskrevet i en cirkel med centrum $O$, og siden $AB$ er <strong>diameter</strong> (se figur).</p>
+        <p><strong>Argumentér</strong> for at trekant $ABC$ er retvinklet ved $C$. (Thales' sætning.)</p>`,
+    type: "self",
+    hint: "Tegn linjestykket $OC$. Triangerne $OAC$ og $OBC$ er ligebenede fordi $|OA| = |OB| = |OC| = r$.",
+    solution: `<p><strong>Bevis:</strong></p>
+      <p>Da $A$, $B$, $C$ ligger på cirklen med centrum $O$, gælder $|OA| = |OB| = |OC| = r$ (radius).</p>
+      <p>Trekant $OAC$ er ligebenet (med $|OA| = |OC|$), så $\\angle OAC = \\angle OCA = \\alpha$.</p>
+      <p>Trekant $OBC$ er ligebenet (med $|OB| = |OC|$), så $\\angle OBC = \\angle OCB = \\beta$.</p>
+      <p>Vinkelsummen i $\\triangle ABC$: $\\alpha + \\beta + (\\alpha + \\beta) = 180°$</p>
+      <p>$\\Rightarrow 2(\\alpha + \\beta) = 180° \\Rightarrow \\alpha + \\beta = 90°$</p>
+      <p>Vinkel $C = \\alpha + \\beta = 90°$. Trekanten er retvinklet ved $C$. ∎</p>` },
+
+  { id: 59, topic: "Numeriske metoder", source: "2023 D2", difficulty: "easy", xp: 10,
+    diagram: "euklid",
+    q: `<p>Euklids algoritme er anvendt på inputtene $a = 1008$ og $b = 210$ (se figur).</p>
+        <p>Angiv $\\text{sfd}(1008, 210)$.</p>`,
+    type: "numeric", answer: 42,
+    hint: "Den sidste ikke-nul rest er sfd.",
+    solution: `<p>Den sidste rest før 0 er <strong>42</strong>. Det er den største fælles divisor.</p>` },
+
+  { id: 60, topic: "Diff.ligninger", source: "2019 D1", difficulty: "medium", xp: 15,
+    diagram: "vector_field_simple",
+    q: `<p>Linjeelementer for differentialligningen $\\frac{dy}{dx} = \\frac{x}{y}$ er vist til højre.</p>
+        <p>Tangenten til løsningskurven gennem $P(2, 3)$ har hældningen $a = \\frac{x_P}{y_P}$.</p>
+        <p>Bestem $a$ (afrund til 3 decimaler).</p>`,
+    type: "numeric", answer: 0.667, tolerance: 0.01,
+    hint: "Hældningen er $\\frac{x}{y}$ i punktet. Indsæt $x=2$, $y=3$.",
+    solution: `<p>$a = \\frac{2}{3} \\approx 0{,}667$</p>` }
+];
+
+// =====================================================
+//                    GAME STATE
+// =====================================================
+let state = {
+  mode: "random",
+  topic: null,
+  current: null,
+  score: 0,
+  streak: 0,
+  bestStreak: 0,
+  correct: 0,
+  answered: 0,
+  xp: 0,
+  level: 1,
+  recentIds: [],
+  hintUsed: false,
+  timerInterval: null,
+  startTime: 0,
+};
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('iros_mat_state_v2');
+    if (saved) {
+      const s = JSON.parse(saved);
+      Object.assign(state, {
+        score: s.score || 0, bestStreak: s.bestStreak || 0,
+        correct: s.correct || 0, answered: s.answered || 0,
+        xp: s.xp || 0, level: s.level || 1
+      });
+    }
+  } catch(e) {}
+}
+function saveState() {
+  try {
+    localStorage.setItem('iros_mat_state_v2', JSON.stringify({
+      score: state.score, bestStreak: state.bestStreak,
+      correct: state.correct, answered: state.answered,
+      xp: state.xp, level: state.level
+    }));
+  } catch(e) {}
+}
+
+const $ = id => document.getElementById(id);
+
+function toast(msg, type = "") {
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  $('toastWrap').appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+function updateStats() {
+  $('score').textContent = state.score;
+  $('streak').textContent = state.streak;
+  $('correct').textContent = state.correct + '/' + state.answered;
+  $('lvl').textContent = state.level;
+  $('lvl2').textContent = state.level;
+  $('bestStreak').textContent = state.bestStreak;
+  const xpInLvl = state.xp % 100;
+  $('xpFill').style.width = xpInLvl + '%';
+  $('xpText').textContent = xpInLvl + ' / 100 XP';
+}
+
+// ============== QUESTION SELECTION ==============
+function pickQuestion() {
+  let pool = QUESTIONS.slice();
+  if (state.mode === "delprove1") {
+    pool = pool.filter(q => q.source.includes("D1"));
+  } else if (state.mode === "hard") {
+    pool = pool.filter(q => q.difficulty === "hard");
+  } else if (state.mode === "topic" && state.topic) {
+    pool = pool.filter(q => q.topic === state.topic);
+  }
+  let fresh = pool.filter(q => !state.recentIds.includes(q.id));
+  if (fresh.length === 0) { state.recentIds = []; fresh = pool; }
+  if (fresh.length === 0) return null;
+  const pick = fresh[Math.floor(Math.random() * fresh.length)];
+  state.recentIds.push(pick.id);
+  if (state.recentIds.length > 8) state.recentIds.shift();
+  return pick;
+}
+
+// ============== TIMER ==============
+function startTimer() {
+  state.startTime = Date.now();
+  clearInterval(state.timerInterval);
+  state.timerInterval = setInterval(() => {
+    const el = $('timer');
+    if (!el) return;
+    const sec = Math.floor((Date.now() - state.startTime) / 1000);
+    el.textContent = `⏱ ${sec}s`;
+    el.classList.toggle('warn', sec >= 30 && sec < 60);
+    el.classList.toggle('danger', sec >= 60);
+  }, 200);
+}
+function stopTimer() {
+  clearInterval(state.timerInterval);
+  return Math.floor((Date.now() - state.startTime) / 1000);
+}
+
+// ============== RENDER ==============
+function renderQuestion() {
+  const q = pickQuestion();
+  state.current = q;
+  state.hintUsed = false;
+  if (!q) {
+    $('cardSlot').innerHTML = '<div class="question-card"><div class="question-body"><div class="question-text">Ingen opgaver i denne kategori. Vælg en anden mode eller emne.</div></div></div>';
+    return;
+  }
+  const diffLabel = { easy: "Let", medium: "Mellem", hard: "Svær" }[q.difficulty];
+  const isSelf = q.type === "self";
+  const hasDiagram = q.diagram && DGM[q.diagram];
+
+  $('cardSlot').innerHTML = `
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-meta">
+          <span class="badge badge-topic">${q.topic}</span>
+          <span class="badge badge-source">${q.source}</span>
+          <span class="badge badge-${q.difficulty}">${diffLabel}</span>
+          <span class="badge badge-xp">+${q.xp} XP</span>
+        </div>
+        <div class="timer-display" id="timer">⏱ 0s</div>
+      </div>
+      <div class="question-body ${hasDiagram ? 'with-diagram' : ''}">
+        <div class="question-content">
+          <div class="question-text">${q.q}</div>
+          ${isSelf ? `
+            <div class="action-row">
+              <button class="btn btn-primary" id="showSolBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                Vis løsning
+              </button>
+              <button class="btn btn-secondary" id="hintBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                Hint
+              </button>
+              <button class="btn btn-ghost" id="skipBtn">Skip →</button>
+            </div>
+          ` : `
+            <div class="answer-section">
+              <div class="answer-label">Dit svar</div>
+              <div class="answer-row">
+                <input type="text" class="answer-input" id="ansInput" placeholder="Indtast tal — fx 1,57 eller 1.57" autocomplete="off">
+                <button class="btn btn-primary" id="submitBtn">
+                  Submit
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="action-row">
+                <button class="btn btn-secondary" id="hintBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                  Hint (−50% XP)
+                </button>
+                <button class="btn btn-ghost" id="skipBtn">Skip opgave →</button>
+              </div>
+            </div>
+          `}
+          <div id="hintSlot"></div>
+          <div id="solSlot"></div>
+        </div>
+        ${hasDiagram ? `<div class="diagram-wrap">${DGM[q.diagram]()}</div>` : ''}
+      </div>
+    </div>
+  `;
+  if (window.renderMathInElement) {
+    renderMathInElement($('cardSlot'), { delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}] });
+  }
+  if (!isSelf) {
+    const inp = $('ansInput');
+    inp.focus();
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+    $('submitBtn').onclick = submit;
+  } else {
+    $('showSolBtn').onclick = revealSelfGrade;
+  }
+  $('hintBtn').onclick = showHint;
+  $('skipBtn').onclick = nextQuestion;
+  startTimer();
+}
+
+function showHint() {
+  if (!state.current.hint || state.hintUsed) return;
+  state.hintUsed = true;
+  $('hintSlot').innerHTML = `
+    <div class="hint">
+      <div class="hint-icon">💡</div>
+      <div class="hint-body">
+        <span class="label">Hint</span>
+        ${state.current.hint}
+      </div>
+    </div>
+  `;
+  if (window.renderMathInElement) renderMathInElement($('hintSlot'), { delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}] });
+}
+
+function parseNumber(s) {
+  if (typeof s !== 'string') return NaN;
+  s = s.trim().replace(',', '.').replace(/\s+/g, '');
+  return parseFloat(s);
+}
+
+function submit() {
+  const q = state.current;
+  const input = $('ansInput');
+  const userAns = parseNumber(input.value);
+  if (isNaN(userAns)) {
+    input.classList.add('wrong');
+    setTimeout(() => input.classList.remove('wrong'), 400);
+    return;
+  }
+  const tol = q.tolerance || 0.001;
+  const correct = Math.abs(userAns - q.answer) <= tol;
+  const elapsed = stopTimer();
+  handleResult(correct, elapsed, input);
+}
+
+function revealSelfGrade() {
+  const q = state.current;
+  stopTimer();
+  $('solSlot').innerHTML = `
+    <div class="solution neutral">
+      <div class="solution-head">
+        <div class="solution-icon">📘</div>
+        <div class="solution-title">Løsning</div>
+      </div>
+      <div class="solution-body">${q.solution}</div>
+      <div class="self-grade">
+        <button class="sg-btn green" id="sgYes">✓ Jeg fik det rigtigt</button>
+        <button class="sg-btn red" id="sgNo">✗ Jeg fik det forkert</button>
+      </div>
+    </div>
+  `;
+  if (window.renderMathInElement) renderMathInElement($('solSlot'), { delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}] });
+  $('sgYes').onclick = () => handleResult(true, 0, null);
+  $('sgNo').onclick = () => handleResult(false, 0, null);
+}
+
+function handleResult(correct, elapsed, input) {
+  const q = state.current;
+  state.answered++;
+  let earned = 0;
+  if (correct) {
+    state.correct++;
+    state.streak++;
+    if (state.streak > state.bestStreak) state.bestStreak = state.streak;
+    earned = q.xp;
+    if (state.hintUsed) earned = Math.ceil(earned / 2);
+    if (elapsed > 0 && elapsed < 15 && q.type !== 'self') { earned += 5; toast('+5 XP ⚡ hurtigt!', 'success'); }
+    if (state.streak >= 3) earned = Math.ceil(earned * 1.5);
+    state.score += earned;
+    state.xp += earned;
+    while (state.xp >= 100) {
+      state.xp -= 100;
+      state.level++;
+      toast('🎉 LEVEL UP! → Niveau ' + state.level, 'warning');
+    }
+    if (input) input.classList.add('correct');
+    toast(`+${earned} XP${state.streak >= 3 ? ' · 🔥 streak ×' + state.streak : ''}`, 'success');
+    if (state.streak === 5) toast('5 i streg! 🔥', 'warning');
+    if (state.streak === 10) toast('UFATTELIGT! 10 i streg! 🔥🔥', 'warning');
+    showSolution(true);
+  } else {
+    state.streak = 0;
+    if (input) input.classList.add('wrong');
+    toast('Forkert — se løsningen nedenfor', 'error');
+    showSolution(false);
+  }
+  updateStats();
+  saveState();
+}
+
+function showSolution(correct) {
+  const q = state.current;
+  $('solSlot').innerHTML = `
+    <div class="solution ${correct ? 'correct' : 'wrong'}">
+      <div class="solution-head">
+        <div class="solution-icon">${correct ? '✓' : '✗'}</div>
+        <div class="solution-title">${correct ? 'Korrekt!' : 'Forkert — se løsningen'}</div>
+      </div>
+      ${q.type !== 'self' ? `<div>Korrekt svar: <span class="answer-key">${q.answer}</span></div>` : ''}
+      <div class="solution-body" style="margin-top:10px;">${q.solution}</div>
+      <div class="solution-actions">
+        <button class="btn btn-primary" id="nextBtn">
+          Næste opgave
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  `;
+  if (window.renderMathInElement) renderMathInElement($('solSlot'), { delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}] });
+  $('nextBtn').onclick = nextQuestion;
+  $('nextBtn').focus();
+  if ($('submitBtn')) $('submitBtn').disabled = true;
+  if ($('ansInput')) $('ansInput').disabled = true;
+}
+
+function nextQuestion() { renderQuestion(); }
+
+// ============== MODE + TOPIC ==============
+function setupModes() {
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.mode = btn.dataset.mode;
+      if (state.mode === 'topic') {
+        if (!state.topic) state.topic = [...new Set(QUESTIONS.map(q => q.topic))][0];
+        buildTopicBar();
+        $('topicBar').style.display = 'block';
+      } else {
+        $('topicBar').style.display = 'none';
+      }
+      state.recentIds = [];
+      renderQuestion();
+    };
+  });
+}
+
+function buildTopicBar() {
+  const topics = [...new Set(QUESTIONS.map(q => q.topic))];
+  $('topicBar').className = 'topic-bar';
+  $('topicBar').innerHTML = `<span class="topic-label">Vælg emne:</span>` +
+    topics.map(t => `<button class="chip ${state.topic === t ? 'active' : ''}" data-topic="${t}">${t}</button>`).join('');
+  document.querySelectorAll('.chip').forEach(c => {
+    c.onclick = () => {
+      document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      state.topic = c.dataset.topic;
+      state.recentIds = [];
+      renderQuestion();
+    };
+  });
+}
+
+// ============== INIT ==============
+loadState();
+updateStats();
+setupModes();
+renderQuestion();
+</script>
+</body>
+</html>
